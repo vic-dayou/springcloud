@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: mointor
+  rabbitmq:
+    host: 192.168.1.112
+    port: 5672
+    username: springcloud
+    password: 123456
+
+server:
+  port: 8989
+management:
+  port: 8998
+eureka:
+  instance:
+    hostname: monitor
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@localhost:8761/eureka/
+turbine:
+  stream:
+    port: 8919
+  app-config: WEBAPP
+  combine-host-port: true
+  cluster-name-expression: new String('default')
