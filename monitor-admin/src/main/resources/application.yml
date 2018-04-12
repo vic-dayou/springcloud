@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: spring-boot-admin-monitor
+  rabbitmq:
+    host: 140.143.6.129
+    port: 5672
+    username: admin
+    password: admin
+  boot:
+    admin:
+          routes:
+            endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+          turbine:
+            clusters: default
+            location: http://localhost:${turbine.stream.port}
+
+server:
+  port: 8081
+security:
+  user:
+    name: admin
+    password: admin
+turbine:
+  stream:
+    port: 8082
+
+eureka:
+  instance:
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+  client:
+    service-url:
+      defaultZone: http://${security.user.name}:${security.user.password}@140.143.6.129:8761/eureka/
+logging:
+   level:
+     org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter: error
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
