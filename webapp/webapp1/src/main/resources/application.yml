@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: webapp1
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+     defaultZone: http://admin:admin@140.143.6.129:8761/eureka/
+security:
+  user:
+    name: admin
+    password: admin
+  oauth2:
+    client:
+      id: bar
+      client-secret: secret
+      access-token-uri: http://140.143.6.129:8081/oauth/token
+      grant-type: client_credentials
+      scope: bar
+    resource:
+      user-info-uri: http://140.143.6.129:8081/current

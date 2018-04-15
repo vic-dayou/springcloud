@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: webapp2
+server:
+  port: 8082
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@140.143.6.129:8761/eureka/
+webapp1:
+  ribbon:
+    ConnectTimeout: 500
+    ReadTimeout: 2000
+    MaxAutoRetriesNextServer: 2
+    MaxAutoRetries: 1
+security:
+  user:
+    name: admin
+    password: admin
+  oauth2:
+    client:
+      id: bar
+      client-secret: secret
+      access-token-uri: http://140.143.6.129:8081/oauth/token
+      grant-type: client_credentials
+      scope: bar
+    resource:
+      user-info-uri: http://140.143.6.129:8081/current
+
