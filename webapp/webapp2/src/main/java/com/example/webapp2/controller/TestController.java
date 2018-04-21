@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
+    private final FeignServer feignServer;
+
     @Autowired
-    FeignServer feignServer;
+    public TestController(FeignServer feignServer) {
+        this.feignServer = feignServer;
+    }
 
     @RequestMapping(value = "/testGet",method = RequestMethod.GET)
     String testService(@RequestParam("name") String name){
         return  feignServer.helloService(name);
     }
 
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    String test1(){
-        return "test!~";
-    }
 }

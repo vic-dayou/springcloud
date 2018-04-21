@@ -17,11 +17,11 @@ public class HelloServiceController {
     private void sleep(String methodName){
         int sleepMinTime = new Random().nextInt(3000);
         logger.info("helloService: <"+methodName+">sleepTime: "+sleepMinTime);
-        try {
-            Thread.sleep(sleepMinTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(sleepMinTime);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 

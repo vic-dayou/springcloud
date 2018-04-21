@@ -1,18 +1,27 @@
 spring:
   application:
     name: webapp2
+#  zipkin:
+#    base-url: http://localhost:8087
+  rabbitmq:
+    username: springcloud
+    password: 123456
+    addresses: amqp://192.168.1.112
+  sleuth:
+    sampler:
+      percentage: 1
 server:
   port: 8082
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin@140.143.6.129:8761/eureka/
-webapp1:
-  ribbon:
-    ConnectTimeout: 500
-    ReadTimeout: 2000
-    MaxAutoRetriesNextServer: 2
-    MaxAutoRetries: 1
+      defaultZone: http://admin:admin@192.168.1.112:8761/eureka/
+#webapp1:
+#  ribbon:
+#    ConnectTimeout: 500
+#    ReadTimeout: 2000
+#    MaxAutoRetriesNextServer: 2
+#    MaxAutoRetries: 1
 security:
   user:
     name: admin
@@ -21,9 +30,8 @@ security:
     client:
       id: bar
       client-secret: secret
-      access-token-uri: http://140.143.6.129:8081/oauth/token
+      access-token-uri: http://192.168.1.112:8081/oauth/token
       grant-type: client_credentials
       scope: bar
     resource:
-      user-info-uri: http://140.143.6.129:8081/current
-
+      user-info-uri: http://192.168.1.112:8081/current

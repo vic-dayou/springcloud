@@ -1,13 +1,24 @@
 spring:
   application:
     name: webapp1
+#  zipkin:
+#    base-url: http://localhost:8087
+  rabbitmq:
+#    host: 140.143.6.129
+#    port: 5672
+    username: springcloud
+    password: 123456
+    addresses: amqp://192.168.1.112
+  sleuth:
+    sampler:
+      percentage: 1
 server:
   port: 8081
 
 eureka:
   client:
     service-url:
-     defaultZone: http://admin:admin@140.143.6.129:8761/eureka/
+     defaultZone: http://admin:admin@192.168.1.112:8761/eureka/
 security:
   user:
     name: admin
@@ -16,8 +27,8 @@ security:
     client:
       id: bar
       client-secret: secret
-      access-token-uri: http://140.143.6.129:8081/oauth/token
+      access-token-uri: http://192.168.112:8081/oauth/token
       grant-type: client_credentials
       scope: bar
     resource:
-      user-info-uri: http://140.143.6.129:8081/current
+      user-info-uri: http://192.168.1.112:8081/current
