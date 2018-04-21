@@ -44,7 +44,7 @@ public interface FeignServer {
 性了，我们只需要把它们中重复的代码抽取出来，同时使用Maven私有仓库就可以轻松实现代码的共享。但是这样就又形成了对共享接口的依赖，
 那么接口变动就会对项目构建造成影响，例如服务提供者修改了一个接口的定义，那么就会直接造成客户端构建失败。所以看情况而定啦！
 
-#Sleuth
+# Sleuth
 [spring cloud sleuth](http://cloud.spring.io/spring-cloud-static/spring-cloud-sleuth/1.3.3.RELEASE/single/spring-cloud-sleuth.html)
 主要细节还是要看官方文档，已经很详细了，这就不再记录了。
 这儿主要想说明的是在构建的时候遇到的坑，
