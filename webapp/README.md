@@ -51,12 +51,15 @@ public interface FeignServer {
 首先就是版本不同带来的坑，因为我在前面使用过stream 去实现Zipkin获取并且展示，在这次就死活没有获取到跟踪记录，白底不得其解呀。
 最开始我认为是不是我的RabbitMQ出现了问题，因为我的应用已经连接到了RabbitMQ，就是不见数据传输。所以我就把[RabbitMQ官文](http://www.rabbitmq.com/tutorials/tutorial-one-java.html)指导读了读
 想着弄懂RabbitMQ的工作原理继而解决这个Zipkin没有获得追踪信息的问题，(随然没有解决这个问题，但是我对RabbitMQ的工作原理理解更加透彻了)，之后无意间就抱着试一试的态度把版本降低了一些，我一开始没想着版本问题就是因为我上次使用跟这个使用的版本只有很小的提高
+> 
 上次是
 * Spring Boot Version 1.5.10.RELEASE
 * Spring Cloud Version Edgware.SR2
+>
 这一次使用
 * Spring Boot Version 1.5.12.RELEASE
 * Spring Cloud Version Edgware.SR3
+>
 是不是版本差距很小，就是这很小的差距导致了依赖版本的提高，安装原来的实现没有成功
 但是当我想尝试着使用新版本时，发现依然没有成功，苦于没有找到合适文档解惑，就索性放弃高版本，继续使用以前的版本，结果当然是成功了
 ##sleuth 个人理解
